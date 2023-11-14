@@ -1,0 +1,47 @@
+﻿@model СontactViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<hr />
+
+<form method="post" asp-action="Create" class="form">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group mb-3">
+        <label asp-for="CName" class="control-label"></label>
+        <input asp-for="CName" class="form-control" />
+        <span asp-validation-for="CName" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="CMobilePhone" class="control-label"></label>
+        <input asp-for="CMobilePhone" class="form-control" type="tel" />
+        <span asp-validation-for="CMobilePhone" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="CJobTitle" class="control-label"></label>
+        <input asp-for="CJobTitle" class="form-control" type="text" />
+        <span asp-validation-for="CJobTitle" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="CBirthDate" class="control-label"></label>
+        <input asp-for="CBirthDate" class="form-control" type="date" />
+        <span asp-validation-for="CBirthDate" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <input type="submit" value="Create" class="btn btn-dark" />
+    </div>
+</form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+
+

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<СontactViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row justify-content-between">
+        <h2 class="col-md-4 col-sm-4 col-12 ">Contacts</h2>
+        <a class="btn btn-light col-md-3 col-sm-3 col-12 m-auto mx-0" asp-controller="Contact" asp-action="Create">Create New</a>
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Mobile phone
+            </th>
+            <th>
+                Job title
+            </th>
+            <th>
+                Birth date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr onclick="location.href = '@(Url.Action("Edit", "Contact", new {  item.Id }))'">
+                <td>
+                    @Html.DisplayFor(modelItem => item.CName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CMobilePhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CJobTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CBirthDate)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
