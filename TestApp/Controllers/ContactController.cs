@@ -20,64 +20,75 @@ namespace TestApp.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            IEnumerable<СontactViewModel> objContactList = _db.Contacts;
-            return View(objContactList);
+            return View(await _db.Contacts.ToListAsync());
         }
 
-        public IActionResult Create()
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Create(СontactViewModel obj)
+        //{
+        //    if (obj.CBirthDate.Date > DateTime.Now || obj.CBirthDate.Date < DateTime.Now.AddYears(-150))
+        //    {
+        //        ModelState.AddModelError("cBirthDate", "Input valid Birth date");
+        //    }
+        //    if (ModelState.IsValid)
+        //    {
+        //        _db.Contacts.Add(obj);
+        //        _db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(obj);
+        //}
+
+        public IActionResult CreateOrEdit(int? id)
         {
-            return View();
+            if (id == 0 || id==null)
+            {
+                return View(new СontactViewModel() { Id = 0 });
+            }
+            else
+            {
+                var contact = _db.Contacts.Find(id);
+
+                if (contact == null)
+                {
+                    return NotFound();
+                }
+                return View(contact);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(СontactViewModel obj)
+        public IActionResult CreateOrEdit(СontactViewModel obj)
         {
             if (obj.CBirthDate.Date > DateTime.Now || obj.CBirthDate.Date < DateTime.Now.AddYears(-150))
             {
                 ModelState.AddModelError("cBirthDate", "Input valid Birth date");
             }
+
             if (ModelState.IsValid)
             {
-                _db.Contacts.Add(obj);
+
+                if (obj.Id == 0 || obj.Id == null)
+                {
+                    _db.Contacts.Add(obj);
+                }
+                else
+                {
+                    _db.Contacts.Update(obj);
+                }
                 _db.SaveChanges();
-                return RedirectToAction("Index");
+                return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_ViewMain", _db.Contacts) }); ;
             }
-            return View(obj);
-        }
-
-        public IActionResult Edit(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            var contact = _db.Contacts.Find(id);
-
-            if (contact == null)
-            {
-                return NotFound();
-            }
-            return View(contact);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(СontactViewModel obj)
-        {
-            if (obj.CBirthDate.Date > DateTime.Now || obj.CBirthDate.Date < DateTime.Now.AddYears(-150))
-            {
-                ModelState.AddModelError("cBirthDate", "Input valid Birth date");
-            }
-            if (ModelState.IsValid)
-            {
-                _db.Contacts.Update(obj);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(obj);
+            return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "CreateOrEdit", obj) });
         }
 
         public IActionResult Delete(int? id)

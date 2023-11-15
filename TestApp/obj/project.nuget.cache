@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "g5K7FGJ0f1HY1WiASrdyLQzQvjWw7+BcID0uVjcOzy8/SLb/PWme9zg4BVFET4hAk9NHfMSV+Q6E1+KyopR16g==",
+  "dgSpecHash": "m1SeRqyIp9PcvGaMKODpCguPnd8KNSVtJt/HSc6uOI5K9RKIPgdOUzHw/4+QSeKB0OBBQieH85xVHDKW7MXnZQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\qawse\\source\\repos\\TestApp\\TestApp\\TestApp.csproj",
   "expectedPackageFiles": [
@@ -129,6 +129,7 @@
     "C:\\Users\\qawse\\.nuget\\packages\\nuget.projectmodel\\6.6.1\\nuget.projectmodel.6.6.1.nupkg.sha512",
     "C:\\Users\\qawse\\.nuget\\packages\\nuget.protocol\\6.6.1\\nuget.protocol.6.6.1.nupkg.sha512",
     "C:\\Users\\qawse\\.nuget\\packages\\nuget.versioning\\6.6.1\\nuget.versioning.6.6.1.nupkg.sha512",
+    "C:\\Users\\qawse\\.nuget\\packages\\nwebsec.aspnetcore.core\\3.0.1\\nwebsec.aspnetcore.core.3.0.1.nupkg.sha512",
     "C:\\Users\\qawse\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\qawse\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\qawse\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

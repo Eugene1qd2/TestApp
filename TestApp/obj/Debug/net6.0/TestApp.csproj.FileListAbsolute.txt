@@ -265,3 +265,4 @@ C:\Users\qawse\source\repos\TestApp\TestApp\bin\Debug\net6.0\ru\Microsoft.CodeAn
 C:\Users\qawse\source\repos\TestApp\TestApp\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\qawse\source\repos\TestApp\TestApp\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\qawse\source\repos\TestApp\TestApp\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\qawse\source\repos\TestApp\TestApp\bin\Debug\net6.0\NWebsec.AspNetCore.Core.dll

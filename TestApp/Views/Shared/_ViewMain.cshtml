@@ -1,0 +1,50 @@
+﻿@model IEnumerable<СontactViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Mobile phone
+            </th>
+            <th>
+                Job title
+            </th>
+            <th>
+                Birth date
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr onclick="showPopup('@Url.Action("CreateOrEdit","Contact",new {id=item.Id},Context.Request.Scheme)','Edit contact')">
+                <td>
+                    @Html.DisplayFor(modelItem => item.CName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CMobilePhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CJobTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CBirthDate)
+                </td>
+                <td onclick="event.stopPropagation();">
+                    <form asp-controller="Contact" asp-action="Delete" asp-route-id="@item.Id">
+                        <input type="submit" class="btn btn-outline-danger" value="Delete">
+                    </form>
+                    <a ></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
